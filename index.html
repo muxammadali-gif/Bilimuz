@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BilimUz — Til o‘rganish</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f6fff7;color:#24352b}
+header{background:#58cc02;color:white;padding:22px 16px;border-radius:0 0 22px 22px}
+header h1{margin:0;font-size:30px}
+main{padding:20px;max-width:700px;margin:auto}
+.card{background:white;padding:18px;margin:14px 0;border-radius:18px;box-shadow:0 3px 12px #0000000d}
+button{background:#58cc02;color:white;border:0;border-radius:12px;padding:13px 18px;font-size:16px;font-weight:bold;margin:5px}
+button:active{background:#46a302}
+.small{color:#647568}
+</style>
+</head>
+<body>
+<header>
+<h1>BilimUz 🌱</h1>
+<p>Tillarni oson va qiziqarli o‘rganing!</p>
+</header>
+<main>
+<div class="card">
+<h2>Assalomu alaykum!</h2>
+<p>O‘rganmoqchi bo‘lgan tilingizni tanlang.</p>
+<button onclick="lesson('Ingliz tili')">🇬🇧 Ingliz tili</button>
+<button onclick="lesson('Nemis tili')">🇩🇪 Nemis tili</button>
+<button onclick="lesson('Rus tili')">🇷🇺 Rus tili</button>
+</div>
+<div class="card" id="dars">
+<h2>📚 Bugungi dars</h2>
+<p>Tilni tanlang va birinchi darsni boshlang.</p>
+</div>
+<div class="card">
+<h2>⭐ Natijangiz</h2>
+<p id="ball">To‘plangan ball: 0</p>
+<p class="small">BilimUz — har kuni yangi bilim!</p>
+</div>
+<div class="card">
+<h2>👑 Premium</h2>
+<p>Kelajakda qo‘shimcha darslar va imkoniyatlar.</p>
+<button onclick="alert('Premium to‘lov tizimi hali ulanmagan.')">Premium haqida</button>
+</div>
+</main>
+<script>
+let points=0;
+function lesson(language){
+let word=language==='Ingliz tili'?'Hello':language==='Nemis tili'?'Hallo':'Привет';
+let meaning=language==='Ingliz tili'?'Salom':language==='Nemis tili'?'Salom':'Salom';
+document.getElementById('dars').innerHTML=
+'<h2>📖 '+language+' — 1-dars</h2>'+
+'<p>Quyidagi so‘zning ma’nosi nima?</p>'+
+'<h2>'+word+'</h2>'+
+'<button onclick="answer(true)">Salom</button>'+
+'<button onclick="answer(false)">Xayr</button>'+
+'<p id="javob"></p>';
+}
+function answer(correct){
+if(correct){points+=10;document.getElementById('javob').innerText='To‘g‘ri! +10 ball 🎉';document.getElementById('ball').innerText='To‘plangan ball: '+points;}
+else{document.getElementById('javob').innerText='Noto‘g‘ri. Yana urinib ko‘ring!';}
+}
+</script>
+</body>
+</html>
